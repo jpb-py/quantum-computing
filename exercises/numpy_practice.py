@@ -30,7 +30,7 @@ probs = np.abs(HI00)**2
 psi = 1/np.sqrt(2)*np.array([1, 0, 0, 1j])
 
 psi_probs = np.abs(psi)**2
-print(np.allclose(1, np.sum(psi_probs)))
-print(psi_probs)
+assert np.allclose(1.0, np.sum(psi_probs))
+
 
 
