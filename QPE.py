@@ -1,17 +1,15 @@
-from numpy import pi
+import numpy as np
 from qiskit import QuantumCircuit
-from qiskit.circuit.library import QFTGate
+from qiskit.circuit.library import QFTGate, UnitaryGate
 from qiskit.quantum_info import Statevector
-from fractions import Fraction
 
 
-
-def apply_controlUs(qc, control_qubits, target_bit, theta):
-    ''' Applies control-U operations on target_bit 
-    given specified theta and control qubits, control qubits 
-    must be supplied in least-significant-bit-first-order e.g [0, 1, 2]'''
+def apply_controlUs(qc, control_qubits, target_bit, U):
+    """Apply controlled powers of a supplied unitary U."""
     for idx, qubit in enumerate(control_qubits):
-        qc.cp(2*pi*theta*2**idx, qubit, target_bit)
+        U_power = np.linalg.matrix_power(U, 2**idx)
+        controlled_U = UnitaryGate(U_power).control(1)
+        qc.append(controlled_U, [qubit, target_bit])
 
 def print_control_probs(qc, control_qubits):
     probabilities = Statevector.from_instruction(qc).probabilities_dict(
@@ -28,24 +26,20 @@ def print_max_control_prob(qc, control_qubits):
 
     key, value = max(probabilities.items(), key=lambda x: x[1])
 
-    key_reversed = key[::-1]
-    j = 0
-    for idx, char in enumerate(key_reversed):
-        j += 2**(idx*float(char))*float(char)
+    j = int(key, 2)
 
     print("Most likey phase estimate is:", f"{j}/{2**len(control_qubits)}")
     print("with probability", value)
     
-   
-   
-   
-    
 
 # Specify inputs
-control_qubits = [3, 5, 8]
-theta = 1/3
+control_qubit_counts = [3, 5, 8]
+U = np.array([
+    [1, 0],
+    [0, np.exp(2j * np.pi / 3)]
+], dtype=complex)
 
-for num_control_qubits in control_qubits:
+for num_control_qubits in control_qubit_counts:
     idx_target = num_control_qubits
     idx_controls = range(num_control_qubits)
 
@@ -59,7 +53,7 @@ for num_control_qubits in control_qubits:
     qc.h(idx_controls)
 
     # Apply controlled-U, -U^2 and-U^4
-    apply_controlUs(qc,idx_controls, idx_target, theta)
+    apply_controlUs(qc,idx_controls, idx_target, U)
 
     # Apply inverse QFT
     qft_gate = QFTGate(num_qubits=num_control_qubits)
