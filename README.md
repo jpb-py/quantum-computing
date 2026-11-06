@@ -6,15 +6,15 @@ The focus is on understanding the underlying mathematics, implementing quantum c
 
 ## Projects
 
-### Quantum Fundamentals and Introductory Algorithms (intro_algorithms.py)
+### 1. Quantum Fundamentals and Introductory Algorithms (intro_algorithms.py)
 
 Explores quantum superposition, entanglement, interference and introductory quantum algorithms through five small circuits:
 
-Bell pair: Prepares the entangled state $(|00\rangle+|11\rangle)/\sqrt2)$.
-Interference: Demonstrates how relative phase changes can produce deterministic measurement outcomes.
-Second Bell state: Prepares the entangled state $((|01\rangle+|10\rangle)/\sqrt2)$.
-Deutsch's algorithm: Implements a balanced oracle and demonstrates phase kickback.
-Bernstein–Vazirani: Implements a simple hidden-bitstring oracle.
+- Bell pair: Prepares the entangled state $(|00\rangle+|11\rangle)/\sqrt2$.
+- Interference: Demonstrates how relative phase changes can produce deterministic measurement outcomes. 
+- Second Bell state: Prepares the entangled state $(|01\rangle+|10\rangle)/\sqrt2$.
+- Deutsch's algorithm: Implements a balanced oracle and demonstrates phase kickback.
+- Bernstein–Vazirani: Implements a simple hidden-bitstring oracle.
 
 Each circuit is displayed and inspected using statevector amplitudes and simulated measurement counts.
 
