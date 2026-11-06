@@ -66,6 +66,7 @@ Multiple optimiser starting points converge to different local optima, demonstra
 ![Expected cut over the γ–β parameter landscape](images/maxcut_heatmap.png)
 
 **Tests**
+
 Includes a `run_tests()` function with assertions that check results
 
 **Limitations**
