@@ -26,7 +26,7 @@ Implements Grover's search algorithm for a two-qubit search space.
 - Applies a single Grover iteration, sufficient to identify one marked state among four possibilities.
 - Uses Qiskit's statevector simulator to verify the results, with automated assertions checking that the marked state has probability 1 for all four possible targets.
 
-### 3. Quantum Phase Estimation (`QPE.py`)
+### 3. Quantum Phase Estimation (`qpe.py`)
 
 Implements quantum phase estimation (QPE) to estimate the eigenphase of a unitary operator.
 
@@ -36,7 +36,7 @@ Implements quantum phase estimation (QPE) to estimate the eigenphase of a unitar
 - Compares results using 3, 5 and 8 control qubits to investigate measurement precision.
 - Reports the most probable phase estimate and its measurement probability using ideal statevector simulation.
 
-### 4. QAOA for Max-Cut
+### 4. QAOA for Max-Cut ('max_cut.py')
 
 Implements a single-layer $(\(p=1\))$ Quantum Approximate Optimisation Algorithm (QAOA) for a small Max-Cut problem.
 
@@ -46,7 +46,7 @@ Implements a single-layer $(\(p=1\))$ Quantum Approximate Optimisation Algorithm
 - Constructs the corresponding cost Hamiltonian using Pauli-Z interactions.
 - Implements parameterised cost and mixing unitaries in Qiskit.
 - Uses SciPy's COBYLA optimiser to maximise the expected cut value.
-- Compares results against exhaustive classical optimisation and random sampling.
+- Compares results against exhaustive classical optimisation and random-assignment baseline.
 - Investigates sensitivity to initial parameters and visualises the optimisation landscape.
 
 **Results**
@@ -56,16 +56,21 @@ For a four-vertex graph with five edges:
 | Metric | Result |
 |---|---:|
 | Exact maximum cut | 4 |
-| Random sampling — expected cut | 2.500 |
+| Random-assignment baseline — expected cut | 2.500 |
 | QAOA — best expected cut found | 3.237 |
-| Random sampling — optimal-cut probability | 12.5% |
+| Random-assignment baseline — optimal-cut probability | 12.5% |
 | QAOA — optimal-cut probability | 32.8% |
 
 Multiple optimiser starting points converge to different local optima, demonstrating that classical parameter optimisation is an important part of the hybrid algorithm.
 
+![Expected cut over the γ–β parameter landscape](images/maxcut_heatmap.png)
+
+**Tests**
+Includes a `run_tests()` function with assertions that check results
+
 **Limitations**
 
-The graph is small enough to solve trivially by exhaustive classical search.  The results illustrate QAOA's operation and its performance relative to random sampling.
+Noiseless statevector simulation. The graph is small enough to solve trivially by exhaustive classical search.  The results illustrate QAOA's operation and its performance relative to random-assignment baseline.
 
 ## Tools
 
