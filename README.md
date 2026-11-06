@@ -31,14 +31,14 @@ Implements Grover's search algorithm for a two-qubit search space.
 Implements quantum phase estimation (QPE) to estimate the eigenphase of a unitary operator.
 
 - Defines a single-qubit unitary matrix and constructs its controlled powers using Qiskit.
-- Uses the target eigenstate $\(|1\rangle\)$, with an expected eigenphase of $\(1/4\)$.
+- Uses the target eigenstate $|1\rangle$, with an expected eigenphase of $1/4$.
 - Applies Qiskit's inverse quantum Fourier transform to extract the phase estimate.
 - Compares results using 3, 5 and 8 control qubits to investigate measurement precision.
 - Reports the most probable phase estimate and its measurement probability using ideal statevector simulation.
 
 ### 4. QAOA for Max-Cut ('max_cut.py')
 
-Implements a single-layer $(\(p=1\))$ Quantum Approximate Optimisation Algorithm (QAOA) for a small Max-Cut problem.
+Implements a single-layer $\(p=1\)$ Quantum Approximate Optimisation Algorithm (QAOA) for a small Max-Cut problem.
 
 **Method**
 
