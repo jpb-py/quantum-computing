@@ -201,6 +201,7 @@ def main():
     plt.ylabel("Parameter beta0")
     plt.title("2D Heatmap: Expected cut value")
 
+    plt.savefig("images/maxcut_heatmap.png", dpi=150, bbox_inches="tight")
     plt.show()
 
 if __name__ == "__main__":
