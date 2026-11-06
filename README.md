@@ -10,9 +10,9 @@ The focus is on understanding the underlying mathematics, implementing quantum c
 
 Explores quantum superposition, entanglement, interference and introductory quantum algorithms through five small circuits:
 
-Bell pair: Prepares the entangled state ((|00\rangle+|11\rangle)/\sqrt2).
+Bell pair: Prepares the entangled state $(|00\rangle+|11\rangle)/\sqrt2)$.
 Interference: Demonstrates how relative phase changes can produce deterministic measurement outcomes.
-Second Bell state: Prepares the entangled state ((|01\rangle+|10\rangle)/\sqrt2).
+Second Bell state: Prepares the entangled state $((|01\rangle+|10\rangle)/\sqrt2)$.
 Deutsch's algorithm: Implements a balanced oracle and demonstrates phase kickback.
 Bernstein–Vazirani: Implements a simple hidden-bitstring oracle.
 
@@ -31,14 +31,14 @@ Implements Grover's search algorithm for a two-qubit search space.
 Implements quantum phase estimation (QPE) to estimate the eigenphase of a unitary operator.
 
 - Defines a single-qubit unitary matrix and constructs its controlled powers using Qiskit.
-- Uses the target eigenstate \(|1\rangle\), with an expected eigenphase of \(1/4\).
+- Uses the target eigenstate $\(|1\rangle\)$, with an expected eigenphase of $\(1/4\)$.
 - Applies Qiskit's inverse quantum Fourier transform to extract the phase estimate.
 - Compares results using 3, 5 and 8 control qubits to investigate measurement precision.
 - Reports the most probable phase estimate and its measurement probability using ideal statevector simulation.
 
 ### 4. QAOA for Max-Cut
 
-Implements a single-layer (\(p=1\)) Quantum Approximate Optimisation Algorithm (QAOA) for a small Max-Cut problem.
+Implements a single-layer $(\(p=1\))$ Quantum Approximate Optimisation Algorithm (QAOA) for a small Max-Cut problem.
 
 **Method**
 
@@ -65,9 +65,7 @@ Multiple optimiser starting points converge to different local optima, demonstra
 
 **Limitations**
 
-The experiments use ideal statevector simulation without hardware noise or finite-shot sampling. The graph is small enough to solve trivially by exhaustive classical search.
-
-The results illustrate QAOA's operation and its performance relative to random sampling.
+The graph is small enough to solve trivially by exhaustive classical search.  The results illustrate QAOA's operation and its performance relative to random sampling.
 
 ## Tools
 
